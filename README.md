@@ -1,4 +1,4 @@
 FlickrStream
 ============
 
-Fetch and display photos on flickr
+Fetch and display photos from flickr
