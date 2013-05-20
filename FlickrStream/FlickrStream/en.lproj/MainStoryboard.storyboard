@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rRv-T7-Zhe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="m7t-Xo-MMX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,15 +9,15 @@
             <objects>
                 <tableViewController id="rRv-T7-Zhe" customClass="LatestFlickrPhotosTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FXd-JI-KTb">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="jP8-TF-oNs" detailTextLabel="LJd-47-cgn" style="IBUITableViewCellStyleSubtitle" id="xtW-ZQ-lun">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="jP8-TF-oNs" detailTextLabel="LJd-47-cgn" style="IBUITableViewCellStyleSubtitle" id="xtW-ZQ-lun">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jP8-TF-oNs">
@@ -33,6 +33,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="SqI-fN-uWb" kind="push" identifier="Show Image" id="mYN-c0-Ip2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,20 +43,58 @@
                             <outlet property="delegate" destination="rRv-T7-Zhe" id="aac-Ev-FKM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="pjE-mH-E1v"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Laf-zU-0c9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="34"/>
+            <point key="canvasLocation" x="696" y="-50"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="qa1-Gc-K6U">
+            <objects>
+                <viewController id="SqI-fN-uWb" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oYu-Kj-Yz3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQd-qG-Kof"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LQd-qG-Kof" firstAttribute="leading" secondItem="oYu-Kj-Yz3" secondAttribute="leading" type="default" id="AeY-1O-au3"/>
+                            <constraint firstItem="LQd-qG-Kof" firstAttribute="trailing" secondItem="oYu-Kj-Yz3" secondAttribute="trailing" type="default" id="H3x-Rb-w9K"/>
+                            <constraint firstItem="LQd-qG-Kof" firstAttribute="bottom" secondItem="oYu-Kj-Yz3" secondAttribute="bottom" type="default" id="NZ5-9h-IT5"/>
+                            <constraint firstItem="LQd-qG-Kof" firstAttribute="top" secondItem="oYu-Kj-Yz3" secondAttribute="top" type="default" id="RDI-Ih-vLC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0JK-hK-o9a"/>
+                    <connections>
+                        <outlet property="scrollView" destination="LQd-qG-Kof" id="M6a-HJ-lFM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQe-1Y-c8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114" y="-49"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8g1-eC-hgu">
+            <objects>
+                <navigationController id="m7t-Xo-MMX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xRg-Y6-MBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rRv-T7-Zhe" kind="relationship" relationship="rootViewController" id="5Lx-6K-LG4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaH-Nq-xis" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="-50"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="LatestFlickrPhotosTVC" superclassName="PhotoTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LatestFlickrPhotosTVC.h"/>
-        </class>
-        <class className="PhotoTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoTVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
