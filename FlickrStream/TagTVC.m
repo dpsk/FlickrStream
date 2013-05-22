@@ -20,15 +20,20 @@
     [self.tableView reloadData];
 }
 
-- (void)viewDidLoad
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Show Tagged"]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setTagName:)]) {
+                    [segue.destinationViewController performSelector:@selector(setTagName:)
+                                                          withObject: [self.tags[indexPath.row] objectForKey:TAG_NAME]];
+                    [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+                }
+            }
+        }
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
