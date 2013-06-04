@@ -19,6 +19,7 @@
 #define FLICKR_PHOTO_OWNER @"ownername"
 #define FLICKR_PHOTO_PLACE_NAME @"derived_place"  // doesn't work for Stanford photos
 #define FLICKR_TAGS @"tags"
+#define FLICKR_DATE @"dateupload"
 
 #define NSLOG_FLICKR NO
 

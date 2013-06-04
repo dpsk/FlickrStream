@@ -43,6 +43,7 @@
     [tagsFrequency enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [tags addObject:[[NSDictionary alloc] initWithObjects:@[key, obj] forKeys:@[TAG_NAME, TAG_COUNT]]];
     }];
-    return tags;
+    NSSortDescriptor *tagName = [[NSSortDescriptor alloc] initWithKey:TAG_NAME ascending:YES];
+    return [tags sortedArrayUsingDescriptors:@[tagName]];
 }
 @end

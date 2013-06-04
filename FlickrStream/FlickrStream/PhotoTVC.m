@@ -8,11 +8,21 @@
 
 #import "PhotoTVC.h"
 #import "FlickrFetcher.h"
-@interface PhotoTVC ()
+@interface PhotoTVC () <UISplitViewControllerDelegate>
 
 @end
 
 @implementation PhotoTVC
+
+- (void) awakeFromNib
+{
+    self.splitViewController.delegate = self;
+}
+
+- (BOOL) splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
+}
 
 - (void) setPhotos:(NSArray *)photos
 {
